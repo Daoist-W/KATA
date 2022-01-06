@@ -1,4 +1,9 @@
 
+// variables to store String numbers
+    String[] digits = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    String[] teens = {"ten", "eleven", "twelve", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+    String[] tens = {"ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+
 
 public int numbers1 (int num) {
     // first digit 
@@ -16,10 +21,6 @@ public static String numbers2(int num) {
     if(num < 1 || num > 99) {
         return "input out of bounds";
     }
-
-    String[] digits = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    String[] teens = {"ten", "eleven", "twelve", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-    String[] tens = {"ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 
     // first digit
     int digit1 = num / 10;
@@ -44,10 +45,6 @@ public static String numbers34(int num) {
     if (num < 1 || num > 9999) {
         return "input out of bounds";
     }
-
-    String[] digits = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    String[] teens = {"ten", "eleven", "twelve", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-    String[] tens = {"ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 
     // thousands
     int thousands = num / 1000;
@@ -90,9 +87,6 @@ public static String numbers34(int num) {
 
 
 public String numberRevisited (int num) {
-    String digits = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    String teens = {"ten", "eleven", "twelve", "fourten", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-    String tens = {"twenty", "thirty", "fourty", "fifty", "sixty", "seventy". "eighty", "ninety"};
 
     for(String digit: digits){
         System.out.println(digit);
