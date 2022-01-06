@@ -1,0 +1,24 @@
+
+
+public void coins (int payment) {
+
+	
+	
+	int[] notes = {100, 50, 20, 10, 5};
+	int[] pounds = {2, 1};
+	int[] coins = {50, 20, 10, 5, 2, 1};
+
+	int numNote = 0;
+	int numPound = 0;
+	int numCoin = 0;
+
+	for(int note: notes) {
+		if(payment / note >= 1) {
+			numNote = payment / note;
+			payment -= numNote * note;
+		}
+
+	}
+
+	for(int)
+}
