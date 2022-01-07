@@ -1,9 +1,6 @@
 
-public class Runner {
+public class Flowchart {
     
-    public static void main (String[] args) {
-
-    }
 
     public static int flowchart(int arg1, int arg2, boolean arg3) {
         // define variables

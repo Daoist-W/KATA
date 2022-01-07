@@ -1,4 +1,6 @@
-    public static void coins(double cash, double cost) {
+
+public class Coins {
+        public static void coins(double cash, double cost) {
         double payment = cash - cost;
         System.out.println(payment);
 
@@ -36,3 +38,4 @@
 
 
     }
+}
