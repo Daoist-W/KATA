@@ -21,7 +21,7 @@ class ArrayLists {
 
 		myArray.get(0);
 
-		myArray.set(3m "hola");
+		myArray.set(3, "hola");
 
 		myArray.remove(2);
 
