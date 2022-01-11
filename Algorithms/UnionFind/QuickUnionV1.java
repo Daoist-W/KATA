@@ -23,13 +23,14 @@ public class QuickUnionV1 {
             int p = pq[0];
             int q = pq[1];
 
-            while(p != q){
+            while(connections[p] != connections[q]){
                 if(q == connections[q]) { // this checks if the element q refers to itself (if it is a node element)
                     connections[p] = q; // if node element, assign connection to element at p
                 } else {
                     q = connections[q]; // if element is not node, move one step up tree, repeat check
                 }
             }
+            System.out.println(Arrays.toString(pq) + " " + Arrays.toString(connections));
         }
     }
 }

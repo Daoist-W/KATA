@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class Person {
     // fields
@@ -12,7 +12,7 @@ public class Person {
         this.age = age;
     }
 
-    // methods
+    // overridden methods
     @Override
     public String toString() {
         return "Person{" +
@@ -21,6 +21,23 @@ public class Person {
                 ", Job Title: '" + jobTitle + '\'' +
                 " }";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return getAge() == person.getAge() && Objects.equals(getName(),
+                person.getName()) && Objects.equals(getJobTitle(),
+                person.getJobTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAge(), getJobTitle());
+    }
+
+    // class methods
 
     public String getName() {
         return name;

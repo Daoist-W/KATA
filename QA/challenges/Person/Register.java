@@ -14,15 +14,15 @@ public class Register {
     }
 
     public void findPerson(String name) {
-        boolean resultsFound = true;
+        boolean noResultsFound = true;
         System.out.println("Search results for (" + name + "): ");
         for (Person person : register) {
             if (person.getName().toLowerCase().contains(name.toLowerCase())) {
-                resultsFound = false;
+                noResultsFound = false;
                 System.out.println("- " + person.getName());
             }
         }
-        if (resultsFound == true) {
+        if (noResultsFound == true) {
             System.out.println("No results found");
         }
     }
