@@ -1,24 +1,19 @@
 
 
-public static class Vehicle {
+public abstract class Vehicle {
     // field
-    private String make;
-    private String model;
-    private int year;
-    private int mileage;
-    private int numSeats;
-    private int numWheels;
-    private int cost;
     private String plateNumber;
+    private int idNum;
 
     // constructor
     public Vehicle(String plateNumber) {
         this.plateNumber = plateNumber;
     }
 
+    public abstract double calculateCost();
 
-    public double calculateCost() {
-        return 0; // will be overridden;
+    public void setIdNum(int id) {
+        this.idNum = id;
     }
 
     public String getPlateNumber() {

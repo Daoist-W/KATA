@@ -1,4 +1,4 @@
-    public static class Car extends Vehicle {
+    public class Car extends Vehicle {
         // field
         private String carType;
         private boolean isAutomatic;

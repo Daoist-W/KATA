@@ -1,4 +1,4 @@
-    public static class Motorbike extends Vehicle {
+    public class Motorbike extends Vehicle {
         // field
         private int engineCC;
 

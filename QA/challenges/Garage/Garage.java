@@ -5,6 +5,7 @@ public class Garage {
     // field
     private ArrayList<Vehicle> vehicles = new ArrayList<>(100);
     private HashMap<String, Double> invoices = new HashMap<>(100);
+    private int currentId = 0;
 
     // methods
     public void calculateBills() {
@@ -16,7 +17,9 @@ public class Garage {
     }
 
     public void storeVehicle(Vehicle vehicle) {
+        vehicle.setIdNum(currentId);
         this.vehicles.add(vehicle);
+        currentId++;
     }
 
     public void removeVehicle(Vehicle vehicle) {
@@ -31,13 +34,11 @@ public class Garage {
         this.vehicles.clear();
     }
 
-    public void removeByType(String type) {
+    public void removeByType(Class<?> type) {
         // this code block loops through the list of Vehicles and removes the Objects with class type matching argument 'type'
-        for (int i = 0; i < vehicles.size(); i++) {
-            if (String.valueOf(vehicles.get(i).getClass()).contains(type)) {
-                vehicles.remove(i);
-                System.out.println(vehicles.get(i) + "removed");
-                i--;
+        for (Vehicle vehicle : new ArrayList<>(this.vehicles)) {
+            if (vehicle.getClass() == type) {
+                this.vehicles.remove(vehicle);
             }
         }
     }

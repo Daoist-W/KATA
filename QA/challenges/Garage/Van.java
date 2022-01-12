@@ -1,4 +1,4 @@
-    public static class Van extends Vehicle {
+    public class Van extends Vehicle {
         // field
         private int storageVolume;
 

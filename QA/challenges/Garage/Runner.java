@@ -2,7 +2,6 @@
 
 public class Runner {
     public static void main(String[] args) {
-
         Garage garage = new Garage();
 
         // creating vehicles
@@ -21,26 +20,19 @@ public class Runner {
         garage.storeVehicle(van);
         garage.storeVehicle(motorbike);
 
-        // checking vehicles stored
-        System.out.println(garage.vehicles);
 
         // removing one vehicle
         garage.removeVehicle(car2);
 
-        // checking vehicle removed
-        System.out.println(garage.vehicles);
-
         // removing multiple vehicles
-        garage.removeByType("Car");
-
-        // checking vehicles removed
-        System.out.println(garage.vehicles);
+        garage.removeByType(Car.class);
 
         // calculating costs
         garage.calculateBills();
+        
 
-        // checking valid
-        System.out.println(garage.invoices);
 
     }
+
+
 }
