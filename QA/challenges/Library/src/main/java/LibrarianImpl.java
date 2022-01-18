@@ -10,6 +10,7 @@ public class LibrarianImpl implements Librarian {
         this.library = library;
     }
 
+    // methods
     public Document checkIn(Customer customer, String docId) {
         Document d = library.getDoc(docId);
         String cId = customer.getCustId();

@@ -52,11 +52,12 @@ public class Customer {
         this.bag.removeAll(Arrays.asList(documents));
     }
 
-    public void requestDoc(LibrarianImpl librarian, Document document) {
+    // Interaction with Librarian interface
+    public void requestDoc(Librarian librarian, Document document) {
         this.addDoc(librarian.checkOut(this, document.getDocId()));
     }
 
-    public void returnDoc(LibrarianImpl librarian, Document document) {
+    public void returnDoc(Librarian librarian, Document document) {
         this.removeDoc(librarian.checkIn(this, document.getDocId()));
     }
 

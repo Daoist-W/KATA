@@ -12,19 +12,10 @@ public class ReadFile {
     public static ArrayList<ArrayList<Integer>> getInputs(String path) throws IOException {
 
         // Local variable set up
-        File file;
         FileReader fileReader = null;
         ArrayList<ArrayList<Integer>> listInputs = new ArrayList<>();
 
-        try { // connecting program to target file
-            file = new File(path);
-            fileReader = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-
-        try (BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path));) {
             // try-with-resource to ensure file closed regardless of outcome
             // here we are trying to open and read the file line by line
             // processing the string input into Integer form and storing the results 

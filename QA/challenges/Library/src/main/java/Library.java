@@ -3,7 +3,7 @@ import enums.Status;
 
 import java.util.HashMap;
 
-public class Library {
+public class Library implements Librarian {
     /*
      * This class functions only to store documents.Documents and Customer
      * information
@@ -12,7 +12,7 @@ public class Library {
     HashMap<String, Document> store = new HashMap<>();
     HashMap<String, Account> database = new HashMap<>();
 
-    // methods
+    // Core methods
     public HashMap<String, Document> getStore() {
         return store;
     }
@@ -20,12 +20,6 @@ public class Library {
     public void putDocs(Document... documents) {
         for (Document doc : documents) {
             store.put(doc.getDocId(), doc);
-        }
-    }
-
-    public void removeDocs(Document... documents) {
-        for (Document doc : documents) {
-            store.remove(doc.getDocId());
         }
     }
 
@@ -97,7 +91,6 @@ public class Library {
         return database;
     }
 
-
     public String printStore() {
         String pages = "";
         for (String item : store.keySet()) {
@@ -113,4 +106,82 @@ public class Library {
         }
         return pages;
     }
+
+    // #########################################################
+    //                  implementation methods
+    // #########################################################
+
+    @Override
+    public Document checkIn(Customer customer, String docId) {
+        Document d = this.getDoc(docId);
+        String cId = customer.getCustId();
+
+        if (this.getDatabase().containsKey(cId)) {
+            d.setStatus(Status.CHECKED_IN);
+            this.modifyAcc(cId, docId, d.getStatus());
+            return d;
+        } else {
+            System.out.println("invalid customer id");
+            return null;
+        }
+    }
+
+    @Override
+    public Document checkOut(Customer customer, String docId) {
+        Document d = this.getDoc(docId);
+        String cId = customer.getCustId();
+
+        if (this.getDatabase().containsKey(cId)) {
+            d.setStatus(Status.CHECKED_OUT);
+            this.modifyAcc(cId, docId, d.getStatus());
+            return d;
+        } else {
+            System.out.println("invalid customer id");
+            return null;
+        }
+    }
+
+    @Override
+    public void addDocs(Document... documents) {
+        this.putDocs(documents);
+    }
+
+    @Override
+    public void removeDocs(Document... documents) {
+        for (Document doc : documents) {
+            store.remove(doc.getDocId());
+        }
+    }
+
+    @Override
+    public void updateDoc(String docId, String field, String newInput) {
+        this.setDoc(docId, field, newInput);
+    }
+
+    @Override
+    public void register(Customer... customers) {
+        for (Customer customer : customers) {
+            // the line below creates multiple accounts and returns their ID's in order
+            // to populate the custId stored in Customer object
+            String custId = this.addAccount(customer.getName());
+            customer.setCustId(custId);
+            // we then use this to populate the Customer field and maintain separation
+        }
+    }
+
+    @Override
+    public void unregister(Customer... customers) {
+        for (Customer customer : customers) {
+            this.removeAccounts(customer.getCustId());
+        }
+    }
+
+    @Override
+    public void updateCustomer(String custId, String newName, boolean shouldClear) {
+        if (shouldClear) {
+            this.clearAccount(custId);
+        }
+        this.modifyAcc(custId, newName);
+    }
+
 }

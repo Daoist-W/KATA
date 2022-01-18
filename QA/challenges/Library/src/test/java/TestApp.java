@@ -11,21 +11,20 @@ public class TestApp {
     @Test
     public void hasCheckOutIn() {
         Library library = new Library();
-        LibrarianImpl librarian = new LibrarianImpl(library);
-
+        
         Customer customer1 = new Customer("Don");
-        librarian.register(customer1);
+        library.register(customer1);
 
         Book book1 = new Book("book", "book");
         Map map = new Map("map", "map");
         Journal journal = new Journal("map", "map");
 
-        librarian.addDocs(book1, map, journal);
+        library.addDocs(book1, map, journal);
 
-        customer1.requestDoc(librarian, book1);
-        customer1.requestDoc(librarian, map);
-        customer1.requestDoc(librarian, journal);
-        customer1.returnDoc(librarian, book1);
+        customer1.requestDoc(library, book1);
+        customer1.requestDoc(library, map);
+        customer1.requestDoc(library, journal);
+        customer1.returnDoc(library, book1);
 
         String s2 = library.printStore();
         String s3 = library.printAccount();
@@ -39,18 +38,17 @@ public class TestApp {
     @Test
     public void hasAddRemoveItem() {
         Library library = new Library();
-        LibrarianImpl librarian = new LibrarianImpl(library);
 
         Customer customer1 = new Customer("Don");
-        librarian.register(customer1);
+        library.register(customer1);
 
         Book book1 = new Book("book", "book");
         Map map = new Map("map", "map");
         Journal journal = new Journal("map", "map");
 
-        librarian.addDocs(book1, map, journal);
+        library.addDocs(book1, map, journal);
 
-        librarian.removeDocs(map);
+        library.removeDocs(map);
 
         assertNull(library.getDoc(map.getDocId()));
 
@@ -59,18 +57,17 @@ public class TestApp {
     @Test
     public void hasRegisterDeleteCustomer() {
         Library library = new Library();
-        LibrarianImpl librarian = new LibrarianImpl(library);
 
         Customer customer1 = new Customer("Don");
         Customer customer2 = new Customer("Jerry");
         Customer customer3 = new Customer("Tina");
         Customer customer4 = new Customer("Tina");
-        librarian.register(customer1);
-        librarian.register(customer2);
-        librarian.register(customer3);
-        librarian.register(customer4);
+        library.register(customer1);
+        library.register(customer2);
+        library.register(customer3);
+        library.register(customer4);
 
-        librarian.unregister(customer2);
+        library.unregister(customer2);
 
         String s2 = library.printStore();
         String s3 = library.printAccount();
