@@ -1,0 +1,70 @@
+CREATE DATABASE IF NOT EXISTS babyamazon;
+USE babyamazon;
+
+
+DROP TABLE IF EXISTS Shipments;
+DROP TABLE IF EXISTS Orders ;
+DROP TABLE IF EXISTS Customer;
+
+CREATE TABLE IF NOT EXISTS Customer (
+	customer_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	customer_name CHAR(50) NOT NULL,
+	customer_email CHAR(50) NOT NULL,
+	customer_phone VARCHAR(15),
+	PRIMARY KEY(customer_id)
+) AUTO_INCREMENT=1;
+
+INSERT INTO Customer (customer_name, customer_email, customer_phone)
+VALUES
+  ("Holly Travis","auctor.vitae@protonmail.couk","1-941-264-2416"),
+  ("Philip Gould","mi.tempor.lorem@icloud.couk","(136) 473-8851"),
+  ("Susan Barnes","maecenas.iaculis@google.com","(276) 320-8610"),
+  ("Keaton Marks","gravida.molestie@yahoo.ca","1-863-966-4374"),
+  ("Hall Valenzuela","et.rutrum@outlook.net","1-245-862-3986"),
+  ("Asher Britt","aliquet@aol.com","(878) 644-8444"),
+  ("Axel Weeks","erat.sed@protonmail.net","1-383-585-4172"),
+  ("Bevis Wynn","laoreet.ipsum@aol.org","(273) 838-4725"),
+  ("Malachi Witt","pellentesque@icloud.edu","1-952-883-3276"),
+  ("Ishmael Horton","amet.ultricies@google.ca","(104) 745-1371");
+
+CREATE TABLE IF NOT EXISTS Orders (
+	order_id INT NOT NULL AUTO_INCREMENT,
+	customer_id INT UNSIGNED NOT NULL,
+	order_date date NOT NULL,
+	PRIMARY KEY(order_id),
+	FOREIGN KEY(customer_id) REFERENCES Customer(customer_id)
+)AUTO_INCREMENT=1;
+
+INSERT INTO Orders (order_date)
+VALUES
+	("2022-02-02"),
+	("2022-02-07"),
+	("2022-03-21"),
+	("2022-08-04"),
+	("2022-08-08"),
+	("2022-08-23"),
+	("2022-09-25"),
+	("2022-11-24"),
+	("2022-12-16"),
+	("2022-12-27");
+
+CREATE TABLE IF NOT EXISTS Shipments (
+	shipment_id INT NOT NULL AUTO_INCREMENT,
+	order_id int NOT NULL,
+	shipment_date date NOT NULL,
+	PRIMARY KEY(shipment_id),
+	FOREIGN KEY(order_id) REFERENCES Orders(order_id)
+)AUTO_INCREMENT=1;
+
+INSERT INTO Shipments(shipment_date)
+VALUES
+	("2022-02-21"),
+	("2022-04-07"),
+	("2022-04-26"),
+	("2022-04-29"),
+	("2022-08-09"),
+	("2022-09-27"),
+	("2022-10-20"),
+	("2022-11-09"),
+	("2022-12-01"),
+	("2022-12-09");
