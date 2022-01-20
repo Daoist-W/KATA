@@ -1,3 +1,5 @@
+package jdbc;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -39,7 +41,7 @@ public class JDBC_Setup {
         return conn;
     }
 
-    // creating method to read data from JCDB and convert to object
+    // This is a method to read data from JDCB and use data to create an object
     // results set is what jdbc returns from the database
     public Customers returnResults(ResultSet resultSet) {
         try {

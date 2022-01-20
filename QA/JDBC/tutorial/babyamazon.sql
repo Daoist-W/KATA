@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Customers (
 	customer_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	customer_name CHAR(50) NOT NULL,
 	customer_email CHAR(50) NOT NULL,
-	customer_phone VARCHAR(15),
+	customer_phone VARCHAR(20),
 	PRIMARY KEY(customer_id)
 ) AUTO_INCREMENT=1;
 

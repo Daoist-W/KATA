@@ -1,3 +1,5 @@
+package jdbc;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -32,18 +34,17 @@ public class TxtFileTool {
     }
 
 
-    // methods for facade implementation of <TableManager>,<Table> text file parsing
-    // I need to employ the factory method here to make this more flexible
-    // the aim is to make a generic tool that I can use for any manager, and any table
-    public <K> void readValuesFromTxt(CustomerManager manager, Customers customer) {
+    // this method parses a text file and transmits the data as a list
+    // to an Entry Class, which uses that information to instantiate
+    public void readValuesFromTxt(Manager manager, Entry entry) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(this.path))) {
             String[] sList;
             String s = bufferedReader.readLine();
             while (s != null) {
                 sList = s.split(",");
                 System.out.println(Arrays.toString(sList));
-                customer = new Customers(sList);
-                manager.addCustomer(customer);
+                entry = entry.newInstance(sList);
+                manager.addEntry(entry);
                 s = bufferedReader.readLine();
             }
         } catch (IOException e) {
@@ -51,4 +52,6 @@ public class TxtFileTool {
             e.printStackTrace();
         }
     }
+
+
 }

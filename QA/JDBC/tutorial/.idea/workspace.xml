@@ -17,11 +17,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindBugs-IDEA-Workspace">
-    <analyzeAfterCompile>true</analyzeAfterCompile>
+    <compileBeforeAnalyze>false</compileBeforeAnalyze>
+    <annotationTextRangeMarkup>false</annotationTextRangeMarkup>
+    <annotationGutterIcon>false</annotationGutterIcon>
     <toolWindowToFront>false</toolWindowToFront>
   </component>
   <component name="ProjectId" id="23uhSokyoK8AXspmPJhxJPmKXhH" />
@@ -44,12 +47,26 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="jdbc" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Runner">
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration name="OptionalRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="optionals.OptionalRunner" />
+      <module name="JDBCEXAMPLE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runner" />
@@ -75,6 +92,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.OptionalRunner" />
       </list>
     </recent_temporary>
   </component>
